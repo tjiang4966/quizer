@@ -1,0 +1,52 @@
+// Color Palette
+$app-white: #f9f9f9;
+$app-red: #f94144;
+$app-orange: #f3722c;
+$app-yellow: #f8961e;
+$app-maize: #f9c74f;
+$app-green: #90be6d;
+$app-aqua: #43aa8b;
+$app-blue: #577590;
+$app-black: #0b0b0b;
+// End of Color Palette
+
+* {
+  font-family: "Arial","Microsoft YaHei","SimHei","SimSun",sans-serif;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+body {
+  margin: 0;
+  padding: 15px;
+}
+
+// Widgets Themes
+.app-btn {
+  font-size: 14px;
+  border: none;
+  padding: 10px 20px;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  &.danger {
+    background-color: $app-red;
+    color: $app-white;
+  }
+
+  &.warning {
+    background-color: $app-yellow;
+    color: $app-black;
+  }
+
+  &.success {
+    background-color: $app-green;
+    color: $app-white;
+  }
+
+  &.primary {
+    background-color: $app-blue;
+    color: $app-white;
+  }
+}
