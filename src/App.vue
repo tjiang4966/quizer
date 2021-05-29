@@ -15,5 +15,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: $app-black;
+  max-height: 80vh;
 }
 </style>

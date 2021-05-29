@@ -63,3 +63,11 @@ body {
     color: $app-white;
   }
 }
+// End of Widgets Themes
+
+// Animations
+@keyframes fade-slide-left {
+  from {margin-left: 50%; opacity: 0;}
+  to {margin-left: 0px; opacity: 1;}
+}
+// End of Animation

@@ -84,6 +84,33 @@ export default {
         }
       }
     }
+
+    .quiz-answer {
+      width: 90vw;
+      overflow: hidden;
+      padding-left: 5px;
+      animation-name: fade-slide-left;
+      animation-duration: .5s;
+      animation-timing-function: ease-out;
+
+      .analytic {
+        max-height: 30vh;
+        overflow: scroll;
+        &::-webkit-scrollbar {
+          display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+        }
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
+    }
+
+    .quiz-action-group {
+      padding-top: 2vh;
+      text-align: center;
+      button {
+        width: 40vw;
+      }
+    }
   }
 }
 </style>

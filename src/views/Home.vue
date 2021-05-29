@@ -13,6 +13,6 @@ export default {
 <style lang="scss" scoped>
 .homeview {
   position: relative;
-  top: 200px;
+  top: 100px;
 }
 </style>
