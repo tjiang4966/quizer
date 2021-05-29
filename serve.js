@@ -8,7 +8,7 @@ const app = express()
 app.use('/', serveStatic(path.join(__dirname, '/dist')))
 
 app.get('/tianapi/baike', (req, res) => {
-  res.send('Response from TianAPI');
+  res.setHeader('Content-Type', 'application/json')
   res.json({
     "code":200,
     "msg":"success",
