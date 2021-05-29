@@ -1,10 +1,22 @@
 // Color Palette
 $app-white: #f9f9f9;
 $app-red: #f94144;
-$app-orange: #f3722c;
-$app-yellow: #f8961e;
+$app-red-dark-1: #f9393c;
+$app-red-dark-2: #f82529;
+$app-red-dark-3: #f81215;
+$app-orange: #f47e3e;
+$app-orange-dark-1: #f3722c;
+$app-orange-dark-2: #f26418;
+$app-orange-dark-3: #e75a0d;
+$app-yellow: #f9a339;
+$app-yellow-dark-1: #f8961e;
+$app-yellow-dark-2: #f89012;
+$app-yellow-dark-3: #ed8607;
 $app-maize: #f9c74f;
 $app-green: #90be6d;
+$app-green-dark-1: #89b964;
+$app-green-dark-2: #7eb356;
+$app-green-dark-3: #74a94c;
 $app-aqua: #43aa8b;
 $app-blue: #577590;
 $app-black: #0b0b0b;
@@ -23,7 +35,8 @@ body {
 
 // Widgets Themes
 .app-btn {
-  font-size: 14px;
+  font-size: 18px;
+  border-radius: 15px;
   border: none;
   padding: 10px 20px;
   a {

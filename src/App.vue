@@ -10,7 +10,7 @@ export default {
 </script>
 <style lang="scss">
 #app {
-  background-color: $app-white;
+  background-color: $app-maize;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
