@@ -7,6 +7,7 @@ const app = express()
 //here we are configuring dist to serve app files
 app.use('/', serveStatic(path.join(__dirname, '/dist')))
 
+// 天行数据 百科题库 API
 app.get('/tianapi/baike', (req, res) => {
   res.setHeader('Content-Type', 'application/json')
   res.json({
