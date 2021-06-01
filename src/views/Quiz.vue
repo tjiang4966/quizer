@@ -34,6 +34,9 @@ export default {
     }
   },
   methods: {
+    /**
+     * Handler: Answer Selected
+     */
     answerSelected(answer)  {
       // block re-answer
       if (this.result !== null) return
@@ -42,25 +45,35 @@ export default {
       this.selectedAnswer = answer
       console.log(`answer ${answer} is selected, the answer is ${this.result}`)
     },
+    /**
+     * Reset Question
+     */
     refreshQuestion() {
       this.result = null
       this.selectedAnswer = null
+      this.question = null
+      this.pullQuestion()
     },
+    /**
+     * Pull Question From API
+     */
+    pullQuestion() {
+      axios.get ('/tianapi/baike')
+        .then((response) => {
+          console.log(response)
+          if (!response.data.newslist.length) {
+            console.log('Question loading failed')
+          } else {
+            this.question = response.data.newslist[0]
+          }
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
   },
   mounted() {
-    // make a request to get question
-    axios.get ('/tianapi/baike')
-      .then((response) => {
-        console.log(response)
-        if (!response.data.newslist.length) {
-          console.log('Question loading failed')
-        } else {
-          this.question = response.data.newslist[0]
-        }
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    this.refreshQuestion()
   }
 }
 </script>
