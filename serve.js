@@ -5,6 +5,7 @@ const serveStatic = require('serve-static')
 const path = require('path')
 
 const ApiHelper = require('./utils/ApiHelper')
+const Config = require('./utils/Config')
 
 const app = express()
 
@@ -26,3 +27,4 @@ app.get('/tianapi/baike', (req, res) => {
 const port = process.env.PORT || 8080
 app.listen(port)
 console.log(`app is listening on port: ${port}`)
+console.log(`environment: ${Config.get('ENVIRONMENT')}`)
