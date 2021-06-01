@@ -45,22 +45,27 @@ export default {
     refreshQuestion() {
       this.result = null
       this.selectedAnswer = null
+      this.question = null
+      this.pullQuestion()
     },
+    pullQuestion() {
+      axios.get ('/tianapi/baike')
+        .then((response) => {
+          console.log(response)
+          if (!response.data.newslist.length) {
+            console.log('Question loading failed')
+          } else {
+            this.question = response.data.newslist[0]
+          }
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
   },
   mounted() {
     // make a request to get question
-    axios.get ('/tianapi/baike')
-      .then((response) => {
-        console.log(response)
-        if (!response.data.newslist.length) {
-          console.log('Question loading failed')
-        } else {
-          this.question = response.data.newslist[0]
-        }
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    this.refreshQuestion()
   }
 }
 </script>

@@ -2,6 +2,8 @@
 node_modules
 /dist
 
+# Config
+/config/config.yaml
 
 # local env files
 .env.local
