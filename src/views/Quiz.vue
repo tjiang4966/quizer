@@ -34,6 +34,9 @@ export default {
     }
   },
   methods: {
+    /**
+     * Handler: Answer Selected
+     */
     answerSelected(answer)  {
       // block re-answer
       if (this.result !== null) return
@@ -42,12 +45,18 @@ export default {
       this.selectedAnswer = answer
       console.log(`answer ${answer} is selected, the answer is ${this.result}`)
     },
+    /**
+     * Reset Question
+     */
     refreshQuestion() {
       this.result = null
       this.selectedAnswer = null
       this.question = null
       this.pullQuestion()
     },
+    /**
+     * Pull Question From API
+     */
     pullQuestion() {
       axios.get ('/tianapi/baike')
         .then((response) => {
@@ -64,7 +73,6 @@ export default {
     }
   },
   mounted() {
-    // make a request to get question
     this.refreshQuestion()
   }
 }
