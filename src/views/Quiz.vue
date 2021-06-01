@@ -1,7 +1,7 @@
 <template>
   <div class="app-quiz">
-    <div v-show="false">loading...</div>
-    <div class="question">
+    <div v-if="question == null">loading...</div>
+    <div v-if="question" class="question">
       <div class="quiz-title">{{question.title}}</div>
       <div class="quiz-option-group">
         <ul>
@@ -22,20 +22,13 @@
   </div>
 </template>
 <script>
+import * as axios from 'axios'
+
 export default {
   name: 'Quiz',
   data() {
     return {
-      question: {
-        title:"新冠肺炎的最长潜伏期一般是多久？",
-        answerA:"1-2天",
-        answerB:"3-7天",
-        answerC:"14天",
-        answerD:"28天",
-        answer:"C",
-        analytic:
-          "新型冠状病毒感染性肺炎属于呼吸道传播性疾病，该病一般最常见的传播途径有飞沫传播，气溶胶传播，粪口传播及眼部粘膜传播，潜伏期一般为3-5天，最长不超过14天左右，也有因人而异，超过以上天数。或许以无症状感染者，不发病。该病确诊有赖于核酸病毒检测，同时做好多饮水，勤洗手，出门戴口罩，避免人群聚集，导致交叉感染。"
-      },
+      question: null,
       result: null,
       selectedAnswer: null,
     }
@@ -43,16 +36,31 @@ export default {
   methods: {
     answerSelected(answer)  {
       // block re-answer
-      if (this.result !== null) return;
+      if (this.result !== null) return
       // check if the answer is correct
       this.result = answer === this.question.answer ? 'T' : 'F'
-      this.selectedAnswer = answer;
-      console.log(`answer ${answer} is selected, the answer is ${this.result}`);
+      this.selectedAnswer = answer
+      console.log(`answer ${answer} is selected, the answer is ${this.result}`)
     },
     refreshQuestion() {
-      this.result = null;
-      this.selectedAnswer = null;
+      this.result = null
+      this.selectedAnswer = null
     },
+  },
+  mounted() {
+    // make a request to get question
+    axios.get ('/tianapi/baike')
+      .then((response) => {
+        console.log(response)
+        if (!response.data.newslist.length) {
+          console.log('Question loading failed')
+        } else {
+          this.question = response.data.newslist[0]
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 }
 </script>
